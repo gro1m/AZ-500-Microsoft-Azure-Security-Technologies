@@ -23,6 +23,12 @@ Azure AD, Users and Groups, Azure AD Roles, MFA, SSPR, App registration, Azure A
   - MFA
   - Self-Service Passowrd Reset
   - Conditional Access Policies.
+  
+|   |**FREE**   | **OFFICE 365 APPS**  |**PREMIUM P1**   |**PREMIUM P2**   |
+|---|---|---|---|---|
+| **Core Identity and Access Management**  |   |   |   |   |
+| Directory Objects1	| 500,000 Object Limit	| No Object Limit	| No Object Limit	| No Object Limit  |
+|   |   |   |   |   |
 
 ### Reading
 1. Student Handbook: “Module 1 – Manage Identity and Access”. 
