@@ -24,11 +24,22 @@ Azure AD, Users and Groups, Azure AD Roles, MFA, SSPR, App registration, Azure A
   - Self-Service Passowrd Reset
   - Conditional Access Policies.
   
+https://azure.microsoft.com/en-us/pricing/details/active-directory
 |   |**FREE**   | **OFFICE 365 APPS**  |**PREMIUM P1**   |**PREMIUM P2**   |
 |---|---|---|---|---|
 | **Core Identity and Access Management**  |   |   |   |   |
 | Directory Objects	| 500,000 Object Limit	| No Object Limit	| No Object Limit	| No Object Limit  |
-| Single Sign-On (SSO)  | <ul><li> [x] </li></ul>| [x]  |  [x] | [x]  |
+| Single Sign-On (SSO)  | <ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|
+
+User:
+- *Guest* - Microsoft Account (no MFA)
+- *Member* - Azure Active Directory
+- *synchronized* - Windows Server Active Directory.
+
+add massive amount of users:
+- use Az-User cmdlet with .csv
+
+*Manage Security defaults* has to be set to False if you use *Conditional Access*.
 
 ### Reading
 1. Student Handbook: “Module 1 – Manage Identity and Access”. 
