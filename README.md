@@ -28,7 +28,7 @@ Azure AD, Users and Groups, Azure AD Roles, MFA, SSPR, App registration, Azure A
 |---|---|---|---|---|
 | **Core Identity and Access Management**  |   |   |   |   |
 | Directory Objects	| 500,000 Object Limit	| No Object Limit	| No Object Limit	| No Object Limit  |
-| Single Sign-On (SSO)  |  [x] | [x]  |  [x] | [x]  |
+| Single Sign-On (SSO)  | <ul><li> [x] </li></ul>| [x]  |  [x] | [x]  |
 
 ### Reading
 1. Student Handbook: “Module 1 – Manage Identity and Access”. 
