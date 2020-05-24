@@ -3,7 +3,26 @@
 ## Session 1
 ### Topics
 *Identity and Access*: 
-Azure AD, Users and Groups, Azure AD Roles, MFA, SSRP, App registration, Azure AD custom domains, Azure AD Connect.
+Azure AD, Users and Groups, Azure AD Roles, MFA, SSPR, App registration, Azure AD custom domains, Azure AD Connect.
+
+### Summary
+- AAD : Azure Active Directory is an identity service.
+- Identity: AAD account, AAD tenant, AAD subscription.
+- https (web-based service through REST-API): 
+  - oAuth
+  - OpenID
+  - SAML
+  - Catalogue (flat)
+  - No OU (Organizational Unit)
+  - No GPO (Group Policy Object)
+  - No LDAP (Lightweight Directory Access Protocol)
+  - No Kerberos
+  - No NTLM (New Technology LAN Manager)
+- Authentication ruled via 
+  - User catalogue
+  - MFA
+  - Self-Service Passowrd Reset
+  - Conditional Access Policies.
 
 ### Reading
 1. Student Handbook: “Module 1 – Manage Identity and Access”. 
