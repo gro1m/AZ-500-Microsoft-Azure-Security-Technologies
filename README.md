@@ -30,60 +30,60 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory
 | **Core Identity and Access Management**  |   |   |   |   |
 | Directory Objects	| 500,000 Object Limit	| No Object Limit	| No Object Limit	| No Object Limit  |
 | Single Sign-On (SSO)  | <ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|<ul><li> [x] </li></ul>|
-  |User provisioning |Available |Available |Available |Available
-  |Federated Authentication (ADFS or 3rd party IDP) |Available |Available |Available |Available
-  |User and group management (add/update/delete) |Available |Available |Available |Available
-  |Device registration |Available |Available |Available |Available
-  |Cloud Authentication (Pass-Through Auth, Password Hash sync, Seamless SSO) |Available |Available |Available |Available
-  |Azure AD Connect sync (extend on-premises directories to Azure AD) |Available |Available |Available |Available
-  |Self-Service Password Change for cloud users |Available |Available |Available |Available
-  |Azure AD Join: desktop SSO & administrator bitlocker recovery |Available |Available |Available |Available
-  |Password Protection (global banned password) |Available |Available |Available |Available
-  |Multi-Factor Authentication3 |Available |Available |Available |Available
-  |Basic security and usage reports |Available |Available |Available |Available
+|User provisioning |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Federated Authentication (ADFS or 3rd party IDP) |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |User and group management (add/update/delete) |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Device registration |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Cloud Authentication (Pass-Through Auth, Password Hash sync, Seamless SSO) |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Azure AD Connect sync (extend on-premises directories to Azure AD) |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Self-Service Password Change for cloud users |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Azure AD Join: desktop SSO & administrator bitlocker recovery |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Password Protection (global banned password) |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Multi-Factor Authentication3 |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Basic security and usage reports |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Business to Business Collaboration | | | |
-  |Azure AD features for guest users4 |Available |Available |Available |Available
+  |Azure AD features for guest users4 |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Identity & Access Management for Office 365 apps | | | |
-  |Company branding (customization of logon & logout pages, access panel) |Not available |Available |Available |Available
-  |Self-service password reset for cloud users |Not available |Available |Available |Available
-  |Service Level Agreement (SLA) |Not available |Available |Available |Available
-  |Device write-back (device objects two-way synchronization between on-premises directories and Azure) |Not available |Available |Available |Available
+  |Company branding (customization of logon & logout pages, access panel) |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Self-service password reset for cloud users |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Service Level Agreement (SLA) |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Device write-back (device objects two-way synchronization between on-premises directories and Azure) |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Premium Features | | | |
-  |Password Protection (custom banned password) |Not available |Not available |Available |Available
-  |Password Protection for Windows Server Active Directory (global & custom banned password) |Not available |Not available |Available |Available
-  |Self-service password reset/change/unlock with on-premises write-back |Not available |Not available |Available |Available
-  |Group access management |Not available |Not available |Available |Available
-  |Microsoft Cloud App Discovery5 |Not available |Not available |Available |Available
-  |Azure AD Join: MDM auto enrollment & local admin policy customization |Not available |Not available |Available |Available
-  |Azure AD Join: self-service bitlocker recovery, enterprise state roaming |Not available |Not available |Available |Available
-  |Advanced security and usage reports |Not available |Not available |Available |Available
+  |Password Protection (custom banned password) |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Password Protection for Windows Server Active Directory (global & custom banned password) |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Self-service password reset/change/unlock with on-premises write-back |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Group access management |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Microsoft Cloud App Discovery5 |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Azure AD Join: MDM auto enrollment & local admin policy customization |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Azure AD Join: self-service bitlocker recovery, enterprise state roaming |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Advanced security and usage reports |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Hybrid Identities | | | |
-  |Application Proxy |Not available |Not available |Available |Available
-  |Microsoft Identity Manager user CAL6 |Not available |Not available |Available |Available
-  |Connect Health7 |Not available |Not available |Available |Available
+  |Application Proxy |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Microsoft Identity Manager user CAL6 |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Connect Health7 |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Advanced Group Access Management | | | |
-  |Dynamic groups |Not available |Not available |Available |Available
-  |Group creation permission delegation |Not available |Not available |Available |Available
-  |Group naming policy |Not available |Not available |Available |Available
-  |Group expiration |Not available |Not available |Available |Available
-  |Usage guidelines |Not available |Not available |Available |Available
-  |Default classification |Not available |Not available |Available |Available
+  |Dynamic groups |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Group creation permission delegation |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Group naming policy |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Group expiration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Usage guidelines |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Default classification |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Conditional Access | | | |
-  |Conditional Access based on group, location, and device status |Not available |Not available |Available |Available
-  |Azure Information Protection integration |Not available |Not available |Available |Available
-  |SharePoint limited access |Not available |Not available |Available |Available
-  |Terms of Use (set up terms of use for specific access) |Not available |Not available |Available |Available
-  |Multi-Factor Authentication with Conditional Access |Not available |Not available |Available |Available
-  |Microsoft Cloud App Security integration |Not available |Not available |Available |Available
-  |3rd party identity governance partners integration |Not available |Not available |Available |Available
+  |Conditional Access based on group, location, and device status |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Azure Information Protection integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |SharePoint limited access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Terms of Use (set up terms of use for specific access) |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Multi-Factor Authentication with Conditional Access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |Microsoft Cloud App Security integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+  |3rd party identity governance partners integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
   |Identity Protection | | | |
-  |Vulnerabilities and risky accounts detection |Not available |Not available |Not available |Available
-  |Risk events investigation |Not available |Not available |Not available |Available
-  |Risk based Conditional Access policies |Not available |Not available |Not available |Available
+  |Vulnerabilities and risky accounts detection |NA |NA |NA |<ul><li> [x] </li></ul>
+  |Risk events investigation |NA |NA |NA |<ul><li> [x] </li></ul>
+  |Risk based Conditional Access policies |NA |NA |NA |<ul><li> [x] </li></ul>
   |Identity Governance | | | |
-  |Privileged Identity Management (PIM) |Not available |Not available |Not available |Available
-  |Access Reviews |Not available |Not available |Not available |Available
-  |Entitlement Management |Not available |Not available |Not available |Available
+  |Privileged Identity Management (PIM) |NA |NA |NA |<ul><li> [x] </li></ul>
+  |Access Reviews |NA |NA |NA |<ul><li> [x] </li></ul>
+  |Entitlement Management |NA |NA |NA |<ul><li> [x] </li></ul>
   |Price |Free |O365 E1, E3, E5, F1, F3 |$6 user/month |$9 user/month
 
 
