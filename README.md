@@ -21,7 +21,7 @@ Azure AD, Users and Groups, Azure AD Roles, MFA, SSPR, App registration, Azure A
 - Authentication ruled via 
   - User catalogue
   - MFA
-  - Self-Service Passowrd Reset
+  - Self-Service Password Reset
   - Conditional Access Policies.
   
 https://azure.microsoft.com/en-us/pricing/details/active-directory
@@ -101,6 +101,16 @@ add massive amount of users:
 New Group -> Membership type.
 If someone moves department, should lose permissions -> dynamic user in Azure AD Premium P2.
 
+*Azure Active Directory* is used to manage
+- Users
+- Groups
+- Roles
+
+*Subscription* 
+- is linked to AAD 
+- you cannot have a subscription without AAD but the opposite is possible.
+- The licenses of the subscription are not coupled to AAD.
+- do not use AAD Roles inside Subscription.
 
 
 ### Reading
@@ -124,6 +134,56 @@ RBAC, Azure AD Privileged Identity Management, Identity Protection, Switch tenan
  
 *Platform protection*: 
 Shared responsibility model, Virtual Networks and subnets, Virtual Network Gateway, Load Balancer, Traffic Manager. 
+
+### Summary
+1 subscription belongs to only one tenant.
+Azure AD is an authentication service, it is an identity provider and authenticator for subscriptions. The Azure Resource Manager "connects" AAD to the individual subscriptions.
+RBAC: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview
+Service Principal comes from AAD.
+Scope -> roles are inherited:
+- If someone Reader on Management Group and Contributor on Subscription, then also Contributor on Resource in that Subscription.
+- Deny access is highest priority.
+non-service oriented roles:
+- Owner
+- Contributor 
+- Reader
+To see other roles, e.g. Roles > Virtual Machine Contributor > Permissions.
+```powershell
+help *-AzRole*
+Get-AzRoleDefinition -Name Owner
+Get-AzRoleDefinition | Select Name
+Get-AzRoleDefinition -Name "Virtual Machine Contributor" | ConvertTo-JSON
+```
+Custom Role Definitions
+
+#### Azure AD Privileged Identity Management (PIM)
+- assignment for particular time
+- access reviews -> signed
+- Azure AD Roles - authorization to manage services
+- Azure Subscription - RBAC roles give authorization to manage ressources 
+- JIT gives just-in-time access to managing AAD Roles and RBAC roles.
+- assignment is always for a particular time
+- first Global Administrator that has enabled PIM is the only one who can manage PIM.
+- Others need to have to have Role of *Privileged Role Administrator*
+- only works for Premium P2 licenses.
+
+assignment:
+- eligible: role assigned but access not activated.
+- active: role is active right now.
+
+Account Admin is Billing Owner. Change Billing Owner by *Transfer Billing Ownership*.
+
+#### Azure Identity Protection
+Risk classification:
+- Sign-In risk:
+  - anonymous IP address
+- User risk:
+  - leaked credentials
+Risk level:
+- low
+- medium
+- high
+
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Understand cloud security”, 
