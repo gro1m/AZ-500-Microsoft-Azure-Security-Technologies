@@ -179,6 +179,7 @@ Risk classification:
   - anonymous IP address
 - User risk:
   - leaked credentials
+  
 Risk level:
 - low
 - medium
