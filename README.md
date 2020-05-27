@@ -284,8 +284,49 @@ Network Security Groups, NVA, forced tunneling, UDR, Azure Firewall, DDoS protec
 VM Security: Admin access.
 
 ### Summary
-Networking: https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking.
-Virtual Networks: https://docs.microsoft.com/en-us/azure/virtual-network/security-overview
+#### Networking
+- CIDR notation: https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking.
+- Virtual Networks: https://docs.microsoft.com/en-us/azure/virtual-network/security-overview
+IP address space, e.g. 10.10.0/16 -> subnet e.g. 10.10.1.0/24: CIDR IP subnet masks follow IPv4 protocol.
+Virtual Net with same space of IP addresses will not be connected to outside.
+IP address spaces for each subnet should be different, as networks with same IP address space cannouted be routed together.
+Subnets inside a VNet are interconnected by system routes.
+IP addresses:
+- private always with VNets (dynamic or static)
+- public: dynamic or static. For production has to be static.
+Connection possibilites:
+- VNet-2-VNet
+- VPN connection using VPN Gateways
+- Site-2-Site via IPSec tunnel
+- VNet peering: 
+  - more secure because it goes through Microsoft network backbone infrastracture.
+  - allows to connect globally (global VNet peering).
+ 
+ Hub-and-spoke (STAR):
+ - Hub: security appliance
+   - on-prem can connect to Hub via Virtual Network Gateway on Hub.
+ - Spoke: 
+   - routed through hub
+   - hub has peering to individual spokes, but the spokes are not peered by the default ("VNet peering is not transitive by default")
+   
+ Virtual Network Gateway:
+ - site-to-site connection between VNets or VNet and Gateway.
+ Connect on-prem to Virtual Network Gateway:
+ 1) Create VPN Gateway Subnet.
+ 2) Create VPN Gateway.
+ 3) Create Local Network Gateway
+ 4) Connect
+ 
+ Tool for inspecting Network architecture on Azure: Network Watcher > Topology.
+ ExpressRoute always runs over Microsoft device
+ 
+ Load Balancer:
+ - public: internet-facing
+ - private: virtual subnet-facing
+ - OSI level 4 that balances the requests on the front-end pool to the backend-pool, e.g. VMs.
+
+
+
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Secure the network”, “Implement host security”  
