@@ -186,6 +186,68 @@ Risk level:
 - high
 
 #### Application proxy
+- registered in App registration
+- add platform redirect URIs
+- loop: AAD connector service to Web and from Web via URL App Proxy back to AAD
+- Branding Enterprise Applications Assign Users and Groups
+
+Glossary: https://docs.microsoft.com/en-us/azure/active-directory/develop/developer-glossary#security-token
+
+Overview of Microsoft Authentication Library (abbreviated as MSAL):
+- ADAL -> v1.0 endpoint
+- MSAL -> v2.0 endpoint
+
+- Application types for Microsoft identity platform
+- JWT tokens
+
+#### Conditional access policies
+Security -> Conditional access policies:
+https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview
+Named Location
+- IP ranges
+- Policies
+Signal:
+- everything that signifies activity.
+- Users
+- Location
+- IP address
+Condition:
+- checks signal, triggers control mechanism
+Control:
+- block or grant access (control block)
+
+#### MFA (Multi-factor authentication)
+More than one verification method:
+- username and password
+- SMS
+- Phone call
+- Authenticator app
+- etc.
+MFA Registration
+Good practice: Admins should also have MFA.
+
+#### Self-Service Password Reset (SSPR)
+- AAD to on-prem ADDS is per-se one-way connection, so no way to reset password in Cloud
+  - Use Write Back Configured in AD Connect.
+- Synchronize on-prem ADDS with AAD via ADConnect
+- aka.ms/sspr
+
+#### Single Sign-On (SSO)
+- not re-enter credentials
+
+#### Sychronization Methods
+https://docs.microsoft.com/en-us/microsoft-365/education/deploy/aad-connect-and-adfs
+1. Password Hash Synchronization:
+   - recommended
+2. Pass-Through Synchronization:
+  - only Identity without password
+  - needs on-prem ADDS
+3. AD FS Synchronization
+  - FS: Federation Services
+  
+AAD -> Global Administrator role
+ADDS -> Enterprise Admin
+
 
 
 
