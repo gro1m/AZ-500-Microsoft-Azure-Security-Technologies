@@ -248,7 +248,16 @@ https://docs.microsoft.com/en-us/microsoft-365/education/deploy/aad-connect-and-
 AAD -> Global Administrator role
 ADDS -> Enterprise Admin
 
+#### Application Gateway
+- OSI Level 7 load balancing
+- http/https requests
 
+#### Web Application Firewall (WAF)
+- security checks on incoming traffic based on OWASP recommendations
+
+#### Traffic Manager
+- load balancer for DNS requests
+- e.g. closest website e.g. choose between EU and US region for a certain user.
 
 
 ### Reading
@@ -273,6 +282,10 @@ ADDS -> Enterprise Admin
 *Platform protection*: 
 Network Security Groups, NVA, forced tunneling, UDR, Azure Firewall, DDoS protection.  
 VM Security: Admin access.
+
+### Summary
+Networking: https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking.
+Virtual Networks: https://docs.microsoft.com/en-us/azure/virtual-network/security-overview
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Secure the network”, “Implement host security”  
