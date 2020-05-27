@@ -185,6 +185,9 @@ Risk level:
 - medium
 - high
 
+#### Application proxy
+
+
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Understand cloud security”, 
