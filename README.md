@@ -348,7 +348,38 @@ inbound traffic:
 outbound traffic:
 - first through Network Interface Card and then through Subnet
 best practice:
-assign rules on Subnet level.
+assign NSG rules on Subnet level.
+
+#### Application Security Group (ASG)
+Network Virtual Appliance (NVA)
+- typically set of VMs
+- packet inspection filter
+
+UDR
+- user-defined routing
+- routing table associated with particular subnet.
+
+#### Azure Firewall
+- stateful service
+- less dummy than NSGs
+- packet filter
+- NVA for Routing
+- automatically scalable enterprise-level service
+- subnet has to be named *Azure Firewall Subnet* 
+- similiar to Threat Management Gateway
+
+Fully-Qualified Domain Names (FQDN):
+- Target FQDNs e.g. *google.com
+
+Distributed-Denial-of-Service (DDoS):
+- Level 3 and 4 of OSI model
+- Standard DDoS plan
+
+https://www.ixiacom.com/products/breakingpoint_cloud
+
+#### VM Security
+
+
 
 
 ### Reading
