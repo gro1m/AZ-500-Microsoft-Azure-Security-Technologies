@@ -326,6 +326,29 @@ Connection possibilites:
  - OSI level 4 that balances the requests on the front-end pool to the backend-pool, e.g. VMs.
 
 
+#### Network Security Group
+- simple packet filter and control
+- 5-tuple rule:
+  - Source IP address
+  - Source Port
+  - Destination IP
+  - Destination Port
+  - Protocol:
+    - TCP
+    - UDP
+- Allow/Deny rules
+
+Predefined default rules exist for inbound and outbound traffic. You can’t delete these rules, but you can override them, because they have the lowest priority. The default rules allow all inbound and outbound traffic within a virtual network, allow outbound traffic towards the internet, and allow inbound traffic to an Azure load balancer. A default rule with the lowest priority also exists in both the inbound and outbound sets of rules that denies all network communication.
+
+priority:
+- lowest number has highest priority
+
+inbound traffic:
+- first through Subnet and then through Network Interface Card
+outbound traffic:
+- first through Network Interface Card and then through Subnet
+best practice:
+assign rules on Subnet level.
 
 
 ### Reading
