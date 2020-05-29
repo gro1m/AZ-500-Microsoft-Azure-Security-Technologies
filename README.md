@@ -68,24 +68,24 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory
 |Group expiration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
 |Usage guidelines |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
 |Default classification |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |**Conditional Access** | | | |
-  |Conditional Access based on group, location, and device status |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |Azure Information Protection integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |SharePoint limited access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |Terms of Use (set up terms of use for specific access) |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |Multi-Factor Authentication with Conditional Access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |Microsoft Cloud App Security integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |3rd party identity governance partners integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
-  |**Identity Protection** | | | |
-  |Vulnerabilities and risky accounts detection |NA |NA |NA |<ul><li> [x] </li></ul>
-  |Risk events investigation |NA |NA |NA |<ul><li> [x] </li></ul>
-  |Risk based Conditional Access policies |NA |NA |NA |<ul><li> [x] </li></ul>
-  |**Identity Governance** | | | |
-  |Privileged Identity Management (PIM) |NA |NA |NA |<ul><li> [x] </li></ul>
-  |Access Reviews |NA |NA |NA |<ul><li> [x] </li></ul>
-  |Entitlement Management |NA |NA |NA |<ul><li> [x] </li></ul>
-  |---|---|---|---|---|
-  |**Price** |Free |O365 E1, E3, E5, F1, F3 |$6 user/month |$9 user/month
+|**Conditional Access** | | | |
+|Conditional Access based on group, location, and device status |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|Azure Information Protection integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|SharePoint limited access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|Terms of Use (set up terms of use for specific access) |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|Multi-Factor Authentication with Conditional Access |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|Microsoft Cloud App Security integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|3rd party identity governance partners integration |NA |NA |<ul><li> [x] </li></ul> |<ul><li> [x] </li></ul>
+|**Identity Protection** | | | |
+|Vulnerabilities and risky accounts detection |NA |NA |NA |<ul><li> [x] </li></ul>
+|Risk events investigation |NA |NA |NA |<ul><li> [x] </li></ul>
+|Risk based Conditional Access policies |NA |NA |NA |<ul><li> [x] </li></ul>
+|**Identity Governance** | | | |
+|Privileged Identity Management (PIM) |NA |NA |NA |<ul><li> [x] </li></ul>
+|Access Reviews |NA |NA |NA |<ul><li> [x] </li></ul>
+|Entitlement Management |NA |NA |NA |<ul><li> [x] </li></ul>
+|---|---|---|---|---|
+|**Price** |Free |O365 E1, E3, E5, F1, F3 |$6 user/month |$9 user/month
 
 
 User:
