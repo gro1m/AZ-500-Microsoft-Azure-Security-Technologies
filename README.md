@@ -377,8 +377,7 @@ Distributed-Denial-of-Service (DDoS):
 
 https://www.ixiacom.com/products/breakingpoint_cloud
 
-#### VM Security
-##### Admin access
+#### VM Security: Admin access
 Why bad practice to expose RDP to public internet?
 - prone to DDoS attack on level 3 or 4.
 
@@ -394,12 +393,15 @@ Options to access VMs with private IP addresses
    - connect from Home to Azure VNet directly also via P-2-S
 5) ExpressRoute 
    - direct connection from on-prem to Azure.
+   
+specific Roles for VMs (Virtual Machine User Login, Virtual Machine Contributor, Virtual Machine Administrator Login)
 
-##### Antimalware
+VMs configure specificpublic Internet address on which you go out:
+NAT Gateway:
+- SNAT (Source Network Address Translation)
+- assign on Subnet level inside VNet.
 
-##### Security Center
 
-##### Updates
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Secure the network”, “Implement host security”  
@@ -422,12 +424,60 @@ Options to access VMs with private IP addresses
 ### Topics
 *Platform protection*: 
 VM Security: Antimalware, Security Center, Updates, Availability Set.  
-Management Groups, Azure Resource Manager, locks, Azure Policy. 
+Management Groups, Azure Resource Manager, locks, Azure Policy.
+
+### Summary
+#### VM-Security: Availability Set
+datacenter:
+- has multiple server racks
+- each server rack is a so-called *fault domain*
+- each server contains update-domains
+
+availability zone:
+- 2-3 datacenters in a certain region that are high-speed (via optical fibers) interconnected.
+
+availability set:
+- Your VM would be spread across update and fault domains but it could happen that your Azure VM is running within the sam datacenter (e.g. same building).
+
+
+#### VM-Security: Azure Security Center
+- scans Azure subscription resources by default
+- deploys Azure Policy on subscriptions which in turn triggers a *Detect-Prevent-Alert* mechanism
+- Pricing and settings:
+  - Free
+  - Standard: protect and alert.
+
+#### VM-Security: Antimalware
+Cloud has shared responsibility model, but Azure has Antimalware solutions.
+
+#### VM-Security: Updates
+Native to Azure: Update Management solution
+Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
+
+Log Analytics agent for Windows or Linux
+PowerShell Desired State Configuration (DSC) for Linux
+Automation Hybrid Runbook Worker
+Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
+
+https://docs.microsoft.com/en-us/azure/automation/automation-update-management
+
+
+
+#### VM-Security: Management group
+
+#### VM-Security: Azure Resource Manager
+
+#### VM-Security: locks
+
+#### VM-Security: Azure Policy
+
+
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Configure security policies by using Microsoft Azure Security Center”, “Implement subscription security”  
 2. Azure Windows VM availability sets official documentation: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability 
 3. Azure Container instances security official documentation: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-image-security 
 4. Azure Policy official documentation: https://docs.microsoft.com/en-us/azure/governance/policy/overview 
+
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_02_Function%20Apps.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_08_Azure_Locks.md 
