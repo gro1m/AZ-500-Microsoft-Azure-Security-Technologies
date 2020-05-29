@@ -378,9 +378,16 @@ Distributed-Denial-of-Service (DDoS):
 https://www.ixiacom.com/products/breakingpoint_cloud
 
 #### VM Security
+##### Admin access
+Why bad practice to expose RDP to public internet?
+- prone to DDoS attack on level 3 or 4.
+- better practice: avoid public IP access assignment with RDP (e.g. use VPN)
 
+##### Antimalware
 
+##### Security Center
 
+##### Updates
 
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Secure the network”, “Implement host security”  
