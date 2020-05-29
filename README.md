@@ -381,7 +381,19 @@ https://www.ixiacom.com/products/breakingpoint_cloud
 ##### Admin access
 Why bad practice to expose RDP to public internet?
 - prone to DDoS attack on level 3 or 4.
-- better practice: avoid public IP access assignment with RDP (e.g. use VPN)
+
+better practice: avoid public IP access assignment to VMs at all
+
+Options to access VMs with private IP addresses
+1) BASTION (encrypted-in-browser https session) - does not need public IP address (similar to Remote Stop Gateway Service)
+2) connect via Jumphost/Jumpbox/Privileged access station VM inside Management Subnet with NSG available via Public IP address
+3) DNAT with Firewall
+4) Best practice: VPN Gateway on VNet (highly secure world)
+   - connect on-prem network to VPN Gateway (via S-2-S (site-to-site))
+   - connect from Home to on-prem via VPN (P-2-S (point-to-site))
+   - connect from Home to Azure VNet directly also via P-2-S
+5) ExpressRoute 
+   - direct connection from on-prem to Azure.
 
 ##### Antimalware
 
