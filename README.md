@@ -401,8 +401,6 @@ NAT Gateway:
 - SNAT (Source Network Address Translation)
 - assign on Subnet level inside VNet.
 
-
-
 ### Reading
 1. Student Handbook: “Module 2 – Implement Platform Protection” => “Secure the network”, “Implement host security”  
 2. Azure VMs security official documentation: https://docs.microsoft.com/en-us/azure/security/fundamentals/virtual-machines-overview 
@@ -465,9 +463,12 @@ https://docs.microsoft.com/en-us/azure/automation/automation-update-management
 
 #### VM-Security: Management group
 
+
 #### VM-Security: Azure Resource Manager
 
+
 #### VM-Security: locks
+
 
 #### VM-Security: Azure Policy
 
