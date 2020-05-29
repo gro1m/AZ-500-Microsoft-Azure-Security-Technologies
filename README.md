@@ -461,7 +461,7 @@ Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
 
 https://docs.microsoft.com/en-us/azure/automation/automation-update-management
 
-
+![](images/updates.png)
 
 #### VM-Security: Management group
 
