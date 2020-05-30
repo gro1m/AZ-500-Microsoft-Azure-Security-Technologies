@@ -563,12 +563,35 @@ Security Considerations (similar to Web App because underlying platform is App S
   - you should not use generic Microsoft URL *.azurewebsites.net*, but custom enterprise domains
   - need D1 plan if Dev/Test, otherwise for production minimally S1.
   - you can use SSL configuration and manual scaling and more powerful VM for B1 plan in Dev/Test, otherwise S1 for production
+- TLS/SSL settings:
+  - *HTTPS only* is by default disabled, i.e. HTTP also allowed
+  - *Minimum TLS Version* by default is 1.2.
+  - you can upload Private KEy Certifcates (.pfx) or Create App Service Managed Certificate and then you can add TLS/SLL binding. 
+  - you can upload Public Key Certificate
+- Networking:
+  - VNet Integration
+    - you can use Function or Web App with VNet Integration 
+    - only outbound connection, so you can connect Function or Web App to VNet - from VNet to Function/WebApp is not available
+  - hybrid connection
+    - you can configure IP port connections (tunneling) 
+    - Point-to-Point Connection
+- API Management:
+  - API: subset of functions based on Application Services
+  - hide underlying APIs (backend) behind one big API proxy (frontend)
+  - just URL of API Management and through slash you connect to particular APIs e.g. Function Apps, Container Services, Web Apps.
+  - you can enable Azure AD Authentication on API Management level.
+- API:
+  - frontend configuration
+  - inbound processing: request to backend
+    - you can configure policies. -> you can use show snippets
+  - backend: http(s) endpoint.
+  - outbound processing: modify response before it is sent to the client
+    - you can configure policies. -> you can use show snippets
 - Scale up (vertical scaling)
   - increase power of VM
   - dev/test, production and isolated environments
 - Scale out (horizontal scaling)
   - increases copies of VM
-
 
 ### Reading
 1. Student Handbook: “Module 3 – Manage Security Operations” => “Configure security services”, “Configure security policies by using Microsoft Azure Security Center”  
