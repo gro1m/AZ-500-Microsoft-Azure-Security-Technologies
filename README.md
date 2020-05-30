@@ -452,25 +452,58 @@ Cloud has shared responsibility model, but Azure has Antimalware solutions.
 Native to Azure: Update Management solution
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
 
-Log Analytics agent for Windows or Linux
-PowerShell Desired State Configuration (DSC) for Linux
-Automation Hybrid Runbook Worker
-Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
+- Log Analytics agent for Windows or Linux
+- PowerShell Desired State Configuration (DSC) for Linux
+- Automation Hybrid Runbook Worker (Automation Account)
+- Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
 
 https://docs.microsoft.com/en-us/azure/automation/automation-update-management
 
 ![](images/updates.png)
 
 #### VM-Security: Management group
+- lets you group subscriptions
+- you can have nested management groups
+- you can have up to six levels of management groups
+- Root Managemnet Group is created by default
+- on level of management group you assign RBAC and Policies for Centralized management.
 
 
-#### VM-Security: Azure Resource Manager
+#### VM-Security: Azure Resource Manager (ARM)
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview
+- management layer for entire Azure infrastructure
+- Requests by tools go to Azure Resource Manager that sends requests to Resource Provider e.g. for VMs Compute, Storage Storage Account, etc.
+- AAD provides users, groups, principals  (identity for authentication)
+- also acts as authorization service additionally to authentication. ARM checks RBAC assignments.
+- additional features: 
+  - Azure Policy
+  - Azure Locks
 
 
 #### VM-Security: locks
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources
+- automatic inherits to down-side levels.
+- can be assigned on subscription, resource group, resource
+- has 2 lock actions
+  - read-only
+  - delete (does not prevent creation)
+- roles that can create locks:
+  - Owner
+  - User Access Administrator
 
 
 #### VM-Security: Azure Policy
+- https://docs.microsoft.com/en-us/azure/governance/policy/overview
+- https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure
+- assign on management group, subscription, resource group
+- group policies to initiative
+- under-the-hood just a JSON file (policy definition) with an if-then evaluation.
+- Effect: what to do if policy not met, e.g. audit (send message to portal dashboard) or deny.
+  - https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects
+  - be careful with *DeployIfNotExists*
+2 options:
+- 1. Evaluation: scheduled every hour.
+- 2. Check on the ARM call
 
 
 ### Reading
