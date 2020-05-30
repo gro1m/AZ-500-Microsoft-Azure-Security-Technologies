@@ -524,7 +524,52 @@ https://docs.microsoft.com/en-us/azure/automation/automation-update-management
 *Security operations*: 
 Serverless apps and containers security (Continue). 
 
-Azure Monitor, Log Analytics, diagnostic logging. 
+Azure Monitor, Log Analytics, Alerts, diagnostic logging. 
+
+### Summary
+Serverless: 
+- develop certain type of code (options: Functions, Logic Apps) and run code with trigger executed on an execution environment (typically application services). You do not care about execution environment.
+functions should not run too long.
+- Possible Plan types:
+  - Consumption (Serverless)
+  - Premium
+  - App Service Plan
+- Pricing Tier:
+  - Dynamic
+  - Free
+- you can set:
+  - can be code or Docker container
+  - Runtime stack
+  - Version
+  - Region
+  - either Linux or Windows OS
+  - Application Insights Monitoring
+
+Durable Functions: https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp
+
+Security Considerations (similar to Web App because underlying platform is App Service):
+- Deployment Center to deploy functions 
+- Deployment slots
+- Configuration:
+  - Application settings
+  - Function runtime settings
+  - General settings: 
+    - *Always on* is disabled for free tier - only enabled on Standard S1 tier.
+- Authentication / Authorization: App Service Authentication can be turn to *On* and then choose authentication provider such as Azure AAD.
+- Backups can be enabled
+  - Snapshots require a Premium App Service plan
+  - backup need minimally Standard S1 plan - can be one-time or scheduled backups.
+- Custom domains:
+  - you should not use generic Microsoft URL *.azurewebsites.net*, but custom enterprise domains
+  - need D1 plan if Dev/Test, otherwise for production minimally S1.
+  - you can use SSL configuration and manual scaling and more powerful VM for B1 plan in Dev/Test, otherwise S1 for production
+- Scale up (vertical scaling)
+  - increase power of VM
+  - dev/test, production and isolated environments
+- Scale out (horizontal scaling)
+  - increases copies of VM
+
+
 ### Reading
 1. Student Handbook: “Module 3 – Manage Security Operations” => “Configure security services”, “Configure security policies by using Microsoft Azure Security Center”  
 2. Azure Monitor official documentation: https://docs.microsoft.com/en-us/azure/azure-monitor/overview 
