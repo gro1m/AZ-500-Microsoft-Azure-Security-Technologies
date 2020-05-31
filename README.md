@@ -673,6 +673,8 @@ Advanced Settings:
 - Data > Windows Event Logs > (e.g.) Application Logs
 - Data > Windows Performance Counters > ...
 
+You can also use Security Center > Compute ] apps > Add Servers > Log Analytics Workspace.
+
 Workspace Data Sources > Virtual Machines:
 - Log Analytics Connection can be *This workspace* or *Other workspace*
 
@@ -692,11 +694,7 @@ Logs: Query console
   | where TimeGenerated > ago(3h)
   | where EventID == 4625 and Account contains "AZUREADMIN" #Event ID 4625 for account failed to logon
   ```
-
-Security Center > Compute ] apps > Add Servers > Log Analytics Workspace
-
-https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-queries
-
+- https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-queries
 
 #### Diagnostic settings
 
