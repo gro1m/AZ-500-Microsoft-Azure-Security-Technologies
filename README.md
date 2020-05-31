@@ -687,7 +687,8 @@ Usage and estimated costs:
 
 Logs: Query console
 - Example:
-  ```bash SecurityEvent 
+  ```bash 
+  SecurityEvent 
   | where TimeGenerated > ago(3h)
   | where EventID == 4625 and Account contains "AZUREADMIN" #Event ID 4625 for account failed to logon
   ```
