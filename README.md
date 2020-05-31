@@ -667,7 +667,34 @@ How to Create LAW:
 
 MMA logs or custom logs via HTTP Data Collector API can be pushed to Log Analytics Workspace
 
-https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-path
+Advanced Settings:
+- Download Windows Agent (MMA)
+- need Workspace ID and key.
+- Data > Windows Event Logs > (e.g.) Application Logs
+- Data > Windows Performance Counters > ...
+
+Workspace Data Sources > Virtual Machines:
+- Log Analytics Connection can be *This workspace* or *Other workspace*
+
+Solutions:
+- set of rules which collects your data on your agents and pushes it to LAW.
+- if enabled for Security Center security logs automatically send to LAW.
+
+Usage and estimated costs:
+- pay for log data ingestion
+- pay for log data retention (30 days to 2years)
+- you can create daily cap but does not include logs by Azure Security Center.
+
+Logs: Query console
+- Example:
+  ```bash SecurityEvent 
+  | where TimeGenerated > ago(3h)
+  | where EventID == 4625 and Account contains "AZUREADMIN" #Event ID 4625 for account failed to logon
+  ```
+
+Security Center > Compute ] apps > Add Servers > Log Analytics Workspace
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-queries
 
 
 #### Diagnostic settings
