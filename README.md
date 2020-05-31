@@ -697,6 +697,12 @@ Logs: Query console
 - https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-queries
 
 #### Diagnostic settings
+If you want to see guest level metrics, need to enable Diagnostic settings.
+- unified platform for streaming metrics and logs to somewhere e.g. Log Analytics Workspace, Storage Account, Event Hub (option to send logs to Splunk).
+- 
+
+#### Logs
+Option to enable logs for VMs.
 
 
 ### Reading
