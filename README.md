@@ -593,6 +593,17 @@ Security Considerations (similar to Web App because underlying platform is App S
 - Scale out (horizontal scaling)
   - increases copies of VM
 
+#### Container security
+Azure Container Registry (ACR):
+- repository for docker container images
+  
+#### Azure Monitor
+
+#### Log Analytics
+
+#### Diagnostic settings
+
+
 ### Reading
 1. Student Handbook: “Module 3 – Manage Security Operations” => “Configure security services”, “Configure security policies by using Microsoft Azure Security Center”  
 2. Azure Monitor official documentation: https://docs.microsoft.com/en-us/azure/azure-monitor/overview 
