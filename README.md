@@ -596,10 +596,66 @@ Security Considerations (similar to Web App because underlying platform is App S
 #### Container security
 Azure Container Registry (ACR):
 - repository for docker container images
+- Access Control (IAM) > Role assignments:
+  - service-specific roles are AcrDelete, AcrPull, AcrPush, AcrImageSigner etc.
+- Encryption > Customer-managed keys
+- Networking > (Endpoints / PaaS Firewalls)
+- Replications
+  - motivation: high availability and you can spread load for your registries
+- Policies > Content Trust:
+  - if enabled you can push signed and trusted containers
+  - needs Premium tier for this registry
+- Security Center > Pricing and Settings > Pricing tier (Standard):
+  - enable Container Registries checks vulnerabilities
+
+Azure Kubernetes Service (AKS):
+- https://docs.microsoft.com/en-us/azure/security-center/container-security
+- https://docs.microsoft.com/en-us/azure/container-instances/container-instances-image-security
+- https://azure.microsoft.com/de-de/resources/container-security-in-microsoft-azure/
+- https://docs.microsoft.com/en-us/azure/security-center/monitor-container-security
+- https://docs.microsoft.com/en-us/azure/aks/use-network-policies
+- Networking: https://docs.microsoft.com/en-us/azure/aks/use-network-policies
+- Managed K8s (you do not pay for this)
+- connect via public API URL (via kubectl) to Managed K8s
+- Managed K8s manages pool of hosts in which you run containers called *pod* (automatic scheduling).
+- To connect privately, there is an option:
+  - https://docs.microsoft.com/en-us/azure/aks/private-clusters
+- Access via Azure AD:
+  - https://docs.microsoft.com/en-us/azure/aks/azure-ad-integration
+  - `powershell az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin`
+  - Assign AAD Identity to K8s (Kubernetes) platform and use own RBAC:
+    - create role
+    - create role binding
+    - https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Faks%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
   
 #### Azure Monitor
+Set of services based on 3 databases (where data is stored: STORE):
+- Activity Log
+- Metrics
+  - value at particular point in time
+  - can be grabbed from Azure Resources (platform-level), Custom Metrics (have to be tied to particular Azure resource)
+  - supports up to 90 days of retention of metrics from your Resources
+  - almost real-time (each metric is ingested in 1-3 minutes)
+  - you can use them for:
+    - Metric Explorer called *Metrics*
+    - you can run Alerts on top of these metrics
+    - Azure Portal Dashboards (can also be connected to Grafana)
+- Logs
+  - behind the scenes *Log Analytics Workspace*
+  - Log Analytics Workspaces
+  - you can use KQL (Keyword Query Language) to get data
+  - you can create Alerts, Dashboards
+  
+You can send Custom Logs to Log Analytics Workspace (performance counters and metrics will also be stored as logs) via Microsoft Monitoring Agent (MMA).
+  
+Insights builds on top of the Logs and Metrics.
+Security Center works on top of Log Analytics Workspace.
+Azure Sentinel (SIEM) on top of Log Analytics Workspace:
+- https://docs.microsoft.com/en-us/azure/sentinel/overview
+Log Analytics Workspace is not created by default.
 
-#### Log Analytics
+#### Log Analytics Workspace (LAW)
+
 
 #### Diagnostic settings
 
