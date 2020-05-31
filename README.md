@@ -639,7 +639,8 @@ Set of services based on 3 databases (where data is stored: STORE):
   - you can use them for:
     - Metric Explorer called *Metrics*
     - you can run Alerts on top of these metrics
-    - Azure Portal Dashboards (can also be connected to Grafana)
+    - Azure Portal Dashboards 
+  - (can also be connected to Grafana)
 - Logs
   - behind the scenes *Log Analytics Workspace*
   - Log Analytics Workspaces
