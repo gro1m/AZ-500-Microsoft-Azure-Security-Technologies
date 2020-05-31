@@ -631,6 +631,8 @@ Azure Kubernetes Service (AKS):
 #### Azure Monitor
 Set of services based on 3 databases (where data is stored: STORE):
 - Activity Log
+  - every operation related to create, update and delete inside Azure Subscription will be logged with information on who (user/service principal), what (action), when (date)
+  - not manageable by you
 - Metrics
   - value at particular point in time
   - can be grabbed from Azure Resources (platform-level), Custom Metrics (have to be tied to particular Azure resource)
@@ -655,7 +657,17 @@ Azure Sentinel (SIEM) on top of Log Analytics Workspace:
 - https://docs.microsoft.com/en-us/azure/sentinel/overview
 Log Analytics Workspace is not created by default.
 
+
 #### Log Analytics Workspace (LAW)
+Security Center > Pricing settings > Data Collection > Auto Provisioning > Log Analytics
+https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection
+How to Create LAW:
+- Add Log Analytics Workspace
+- if in connection with Automation Account you need to choose right location
+
+MMA logs or custom logs via HTTP Data Collector API can be pushed to Log Analytics Workspace
+
+https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/get-started-path
 
 
 #### Diagnostic settings
