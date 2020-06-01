@@ -761,6 +761,9 @@ References:
 - https://docs.microsoft.com/en-us/azure/security/benchmarks/overview
 - https://docs.microsoft.com/en-us/azure/security/fundamentals
 
+- https://learn.cisecurity.org/benchmarks
+- https://www.cisecurity.org/cis-benchmarks
+
 - https://docs.microsoft.com/en-us/learn/modules/create-security-baselines/4-create-a-storage-accounts-baseline
 - https://docs.microsoft.com/en-us/azure/storage/common/security-baseline
 
@@ -826,12 +829,67 @@ Options to secure storage account:
 ### Topics
 *Secure data and applications*: 
 Azure SQL Database Always Encrypted, Storage encryption, Azure Disk encryption, Azure Backup encryption, Web App for containers, Application Insights, Microsoft Security Development Lifecycle.
+
+### Summary
+Users/Applications can access DB Server via 
+- SQL Server Management Studio with T-SQL queries 
+- PowerShell
+- Azure Portal
+From there you can access individual DBs.
+Direct DB connection is only possible via T-SQL.
+
+Connection options:
+Client via Azure SQL Data Gateway via Proxy or Redirect.
+
+Azure SQL authentication:
+- Integrated AAD (ADDS if federated trust; azure pass-through or hash; needs SSO)
+- AAD with Password
+- universal - with MFA
+
+Procedure:
+1. DBA@mycompany.com federated (Data-Base Admin)
+2. DBO (Data-Base Owner)
+3. Create User Accounts (contained users)
+4. Roles DB
+You can have advanced data security for 15USD/server/month.
+
+Data Security measures
+- Data Classification:
+  - Tag data in databases (VNets, Ressources)
+  - Process:
+    1. Data Discovery (Business Analyst)
+    2. Classification
+- Vulnerability Assessment
+- Threat Protection
+
+Database Encryption:
+- Transparent Data Encryption (TDE)
+  - pages in database are encrypted
+  - not related to applications
+- Always Encrypted
+
+Always Encrypted is Client-Side Encryption.
+TDE is server-side encryption (SSE).
+Data in Transit is encrypted by SSL/TLS, HTTPS or VPN channel.
+
+key encryption key is column encryption key that encrypts or decryptes database encryption key.
+Encrypted columns: need to be careful how to configure getting data via T-SQL queries.
+
+Dynamic Masking
+
+Azure Backup encryption:
+- Azure VMs send data encrypted in transit (via https) to Recovery Service Vault (specific form of storage), which is encrypted by SSE (Storage Server Encryption).
+- Windows Server sends data via Microsoft Azure Recovery Services Agent (MARS) to Recovery Service Vault.
+
+(Encryption on the fly: protection on CPU level)
+
 ### Reading
 1. Student Handbook: “Module 4 – Secure Data and Applications” => “Configure encryption for data at rest”, “Understand application security”, “Implement security for application lifecycle” 
 2. Azure Disk Encryption official documentation: https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss 
 3. Azure SQL Database Always Encrypted official documentation: https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?redirectedfrom=MSDN&view=sql-server-ver15 
 4. Azure Application Security (Azure Architecture Framework) official documentation: https://docs.microsoft.com/en-us/azure/architecture/framework/security/applications-services 
 5. Azure Application secure development and lifecycle management official documentation: https://docs.microsoft.com/en-us/azure/security/develop/secure-dev-overview 
+
 ### Labs
 - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-portal-quickstart 
 - https://docs.microsoft.com/en-us/azure/storage/common/storage-encryption-keys-portal 
@@ -840,11 +898,86 @@ Azure SQL Database Always Encrypted, Storage encryption, Azure Disk encryption, 
 ### Topics
 *Secure data and applications*: 
 Managed Identity, PaaS firewall and Service Endpoint, Front Door, Key Vault 
+
+### Summary
+#### Security Development Lifecycle (SDL)
+- https://www.microsoft.com/en-us/securityengineering/sdl/resources
+Procedure:
+1. Design
+- Requirement
+- Security Requirement
+- Threat Modeling: aka.ms/threatmodeling
+2. CI
+- Code -> (Code Review) -> Build -> Test / Security Test
+- e.g. use SonarCloud, SonarQube
+3. CD
+- Artefact -> Test (e.g. Penetration) / Security Tests -> Prod
+- e.g. WhiteSourceBolt
+
+#### Azure Disk Encryption
+- Always via Azure Key Vault.
+- Manage Disk uses system-managed key, customer-managed key for server-side encryption of Storage (SSE).
+  - Use Disk encryption set -> granted permission to KeyVault to Get, Wrap and Unwrap Key.
+- Unmanaged Disk use Disk Encryption Key (DEK, secret) via Bitlockerkey (BEK, Windows) or DM-Crypt (Linux) to CSE inside Operating System
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-powershell-quickstart
+
+#### Managed Identity
+- behing the scenes service principal
+- Use Case: App/identity needs access to resource. 
+  - 1. Managed Identity for resource
+  - 2. RBAC for resource
+  - 3. Resource requests JSON Token from the App that retrieves it from the Azure Instance Metadata Service (on non-routable IP address: 169.254.169.251)
+  
+Types:
+- system-assigned managed identity:
+  - cannot be shared among resources
+  - alive as long as resource alive
+- user-assigned managed identity:
+  - more efficient for multiple resources
+  
+```powershell
+Connect-AzAccount -Identity
+Get-AzVM
+```
+
+Service Endpoints and PaaS Firewall typically together:
+1. Service Endpoint functionality enabled on subnet
+2. Enable Service Endpoint on resource
+3. Now Subnet and Resource are connected through internal network through Azure backbone.
+
+https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
+
+#### The Key Vault
+Key Vault = Secured Storage
+Data to secure:
+- key
+- secret
+- certificate
+Management of Key Vault is via RBAC, whereas data access is managed via shared access policy:
+If you deploy a key vault it does not mean that you have access to the data.
+
+Soft-delete:
+- allows to recover key vault within retention period.
+
+purge protection:
+- disallows to delete soft-deleted items.
+
+#### Front Door
+- is a global service, whereas Application Gateway is a regional service
+- WebSockets probably not supported, but WAF can be enabled
+- L7 load balancer for backends that can be in East US, West EU, etc.
+- publishing service
+- only http/https
+
+
 ### Reading
 1. Student Handbook: “Module 4 – Secure Data and Applications” => “Secure applications”, “Configure and manage Microsoft Azure Key Vault” 
 2. Azure Network Service Endpoint official documentation: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview 
 3. Azure Front Door official documentation: https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview 
 4. Azure Key Vault official documentation: https://docs.microsoft.com/en-us/azure/key-vault/general/overview
+
+
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_02_Key_Vault.md 
 - https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-restrict-network-access-to-resources 
