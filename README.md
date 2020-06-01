@@ -699,7 +699,6 @@ Logs: Query console
 #### Diagnostic settings
 If you want to see guest level metrics, need to enable Diagnostic settings.
 - unified platform for streaming metrics and logs to somewhere e.g. Log Analytics Workspace, Storage Account, Event Hub (option to send logs to Splunk).
-- 
 
 #### Logs
 Option to enable logs for VMs.
@@ -729,6 +728,85 @@ Security alerts, security baseline.
 
 *Secure data and applications*: 
 Data classification, Azure SQL firewall, Azure SQL Database Advanced Data Security, SAS. 
+
+### Summary
+Security Alert:
+- notification in Security Portal that something happened - sent to Azure Security Center
+Incidents:
+- collection of similar alerts
+Standard Pricing tier you can enable alerts on Resource level.
+Network traffic and Logs are analyzed regarding:
+- behavioral pattern
+- anomalies (with Machine learning techniques)
+- TI
+Investigation gives an assessment:
+- high 
+- medium
+- low
+- informational
+Security Alerts and the intent kill chain: https://docs.microsoft.com/en-us/azure/security-center/alerts-reference
+
+```powershell
+kubectl get pods
+kubectl cluster -info
+kubectl get namespace
+```
+
+Security Baseline:
+- document that defines business risk and from this technical risk in a document. This should then result in Policies which are deployed through all environments and then reviewed. Upon review the whole cycle may start again-
+
+References:
+- https://azure.microsoft.com/en-us/resources/cis-microsoft-azure-foundations-security-benchmark/
+- https://github.com/MicrosoftDocs/SecurityBenchmarks/blob/master/spreadsheets/AzureSecurityBenchmark_v1.0.xlsx
+- https://docs.microsoft.com/en-us/azure/security/benchmarks/overview
+- https://docs.microsoft.com/en-us/azure/security/fundamentals
+
+- https://docs.microsoft.com/en-us/learn/modules/create-security-baselines/4-create-a-storage-accounts-baseline
+- https://docs.microsoft.com/en-us/azure/storage/common/security-baseline
+
+Replication:
+- Locally-redundant storage (LRS)
+  - storage account (instance of storage server) in only one region in particular datacenter with 3 synchronous replicas
+- Geo-redundant storage (GRS)
+  - LRS in particular datacenter in one region + LRS copy in particular datacenter in a second region. Copy is asynchronous repliace of primary LRS. Acess to second region only if first region is down.
+  - RA-GRS: read access to second region
+- Zone-redundant storage (ZRS)
+  - storage account in one region but 3 replicas are spread over datacenters synchronously.
+- Geo-zone-redundant storage (GZRS):
+  - in primary region: ZRS, in secondary region: LRS
+  - RA-GZRS: read access in second region
+Enable *Secure transfer required*:
+- Secure data in transit via SSL/TLS certificate.
+  
+```powershell
+"Hello World" | Out-File test.txt
+```
+
+Shared Access Signature (SAS):
+- URL
+- can be assigned on blob or on container level
+- url of blob service: /<container name>/<file name>?<SAS>
+
+Restrict internet access:
+- container level
+  - change access level:
+    - private
+    - blob (no shared access signature needed, but not good practice if not only used in VNet)
+    - container (no shared access signature needed, but not good practice if not only used in VNet)
+    
+Access policy:
+- Stored access policies > Add policy
+- you can specify retention time
+
+Storage explorer:
+- compromised URL: without stored access policies you can only regenerate keys
+- Manage Access policies -> change ID, delete
+
+Options to secure storage account:
+- Access keys
+- Shared Access Signatures + Stored Access Policy + Access Level on container
+- Azure AD Identities + Role-Based Access Control:
+  - allows you to specify roles more granularly (best version)
 
 ### Reading
 1. Student Handbook: “Module 3 – Manage Security Operations” => “Manage security alerts”, “Respond to and remediate security issues”, “Create security baselines” 
