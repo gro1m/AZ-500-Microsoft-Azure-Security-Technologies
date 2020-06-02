@@ -120,9 +120,24 @@ If someone moves department, should lose permissions -> dynamic user in Azure AD
 
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_03_MFA.md 
+  - Enable Security defaults: No -> Security > Conditional Access | Policies: + Add Policy
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_04_App_Registration.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_05_Application_Service_Principal.md 
+  - service principal: code/app identity to create/modify resources.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_06_RBAC.md 
+  - how to create user via Powershell:
+  ```powershell
+  Connect-AzureAD
+  $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
+  $PasswordProfile.Password = "Pa55w.rd"
+  New-AzureADUser -DisplayName "Mark" -PasswordProfile $PasswordProfile     -UserPrincipalName "Mark@yourdomain.onmicrosoft.com" -AccountEnabled $true -MailNickName "Mark"
+  Get-AzureADUser # gets list of Users in Azure AD
+  ```
+  - how to create user via Azure CLI:
+  ```bash
+  az ad user create --display-name Tracy --password Pa55w.rd --user-principal-name Tracy@yourdomain.onmicrosoft.com
+  az ad user list # gets list of Users in Azure AD
+  ```
 - https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-members-azure-portal 
 - https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal 
 - https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-profile-azure-portal 
