@@ -133,10 +133,20 @@ If someone moves department, should lose permissions -> dynamic user in Azure AD
   New-AzureADUser -DisplayName "Mark" -PasswordProfile $PasswordProfile     -UserPrincipalName "Mark@yourdomain.onmicrosoft.com" -AccountEnabled $true -MailNickName "Mark"
   Get-AzureADUser # gets list of Users in Azure AD
   ```
+  - how to create groups via Powershell:
+  ```powershell
+  Connect-AzureAD
+  New-AzureADGroup -DisplayName "Junior Admins" -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+  ```
   - how to create user via Azure CLI:
   ```bash
   az ad user create --display-name Tracy --password Pa55w.rd --user-principal-name Tracy@yourdomain.onmicrosoft.com
   az ad user list # gets list of Users in Azure AD
+  ```
+  - how to create groups via Azure CLI:
+  ```bash
+  az login
+  az ad group create --display-name ServiceDesk --mail-nickname ServiceDesk
   ```
 - https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-members-azure-portal 
 - https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal 
