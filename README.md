@@ -138,6 +138,17 @@ If someone moves department, should lose permissions -> dynamic user in Azure AD
   Connect-AzureAD
   New-AzureADGroup -DisplayName "Junior Admins" -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
   ```
+  - how to assign roles via Powershell:
+  ```powershell
+  $sub_id = Get-AzSubscription | Select-Object -ExpandProperty Id | Out-String
+  $subScope = "/subscriptions/$sub_id" | Out-String
+  New-AzRoleAssignment -SignInName bill@yourdomain.onmicrosoft.com -RoleDefinitionName "Reader" -Scope $subScope 
+  Get-AzRoleAssignment -SignInName bill@yourdomain.onmicrosoft.com -Scope $subScope
+  Get-AzRoleAssignment -SignInName bill@yourdomain.onmicrosoft.com     -ResourceGroupName "myRBACrg"
+  Remove-AzRoleAssignment -SignInName bill@yourdomain.onmicrosoft.com -RoleDefinitionName "Contributor" -ResourceGroupName "myRBACrg"
+  Remove-AzRoleAssignment -SignInName bill@yourdomain.onmicrosoft.com -RoleDefinitionName "Reader" -Scope $subScope
+  Remove-AzResourceGroup -Name "myRBACrg"
+  ```
   - how to create user via Azure CLI:
   ```bash
   az ad user create --display-name Tracy --password Pa55w.rd --user-principal-name Tracy@yourdomain.onmicrosoft.com
