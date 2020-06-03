@@ -305,7 +305,6 @@ ADDS -> Enterprise Admin
 
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_01_PIM.md 
-  - 
   ```powershell
   Get-AzRoleDefinition
   Connect-AzureAD
