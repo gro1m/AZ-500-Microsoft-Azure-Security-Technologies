@@ -1045,5 +1045,7 @@ purge protection:
 
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_02_Key_Vault.md 
+  - Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure.
+  - Download SQL Server Management Studio (SSMS): https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
 - https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-restrict-network-access-to-resources 
 - https://docs.microsoft.com/en-us/azure/frontdoor/quickstart-create-front-door 
