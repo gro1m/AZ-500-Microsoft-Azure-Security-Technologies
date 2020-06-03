@@ -321,6 +321,18 @@ ADDS -> Enterprise Admin
   - Creating Virtual Networks and installing ICMP on one of the VMs in the same subnet lets the other VM successfully ping the first VM that has ICMP installed.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_10_Load%20Balancer%20and%20App%20Gateway.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_08_VNet%20Peering.md 
+  - Virtual networks can be connected with virtual network peering. 
+  - These VNets can be in the same region or different regions (also known as Global VNet peering). 
+  - The resources of peered VNets are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. 
+  - The VNets have to be in same resource group
+  - You need to enable Internet Control Message Protocol (ICMP) on VM, e.g. VM1:
+  ```powershell
+  New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
+  ```
+  - Connect to VM2 from VM1 via:
+  ```powershell
+  mstsc /v:10.1.0.4 # 10.1.0.4 is VM2's VNet IPadress
+  ``
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_18_Custom%20Domains.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_09_Azure%20DNS.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_19_Private%20DNS.md 
