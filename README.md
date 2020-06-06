@@ -810,7 +810,21 @@ Option to enable logs for VMs.
 
 4. Azure Operational Security best practices official documentation: https://docs.microsoft.com/en-us/azure/security/fundamentals/operational-best-practices
 ### Labs
-- https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_01_Azure%20Monitor.md 
+- https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_01_Azure%20Monitor.md
+  - Create Resource Group and VM:
+  ```powershell
+  New-AzResourceGroup -Name myResourceGroup -Location EastUS
+  New-AzVm -ResourceGroupName "myResourceGroup" -Name "myVM" -Location "East  US" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress"     -OpenPorts 80,3389
+  ```
+ - Create Log Analytics Workspace:
+   - Under Workspace Data Sources select Virtual Machines
+   - Select specific VM and click connect; LAW agent will be automatically installed.
+- Collect event and performance of a Windows VM:
+  - Click Advanced Settings > Data: Choose Windows Event Logs and Windows Performance Counters.
+- View data collected:
+  - Select Logs.
+  - Type `Perf into query.
+
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_02_Security%20Center.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_07_Secure%20score%20in%20Azure%20Security%20Center.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_05_Manage%20endpoint%20protection%20issues.md 
