@@ -589,6 +589,33 @@ https://docs.microsoft.com/en-us/azure/automation/automation-update-management
     - Azure Resource Manager Template (Subscription)
     - Resource group
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_03_Create%20a%20Kubernetes%20Cluster.md 
+  - Create Ressource Group and Kubernetes Cluster via Bash:
+    ```bash
+    az group create --name myAKSResourceGroup --location eastus
+    az aks create  --resource-group myAKSResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
+    ```
+  - Connect to Kubernetes Cluster via Bash:
+    ```bash
+    az aks get-credentials --resource-group myAKSResourceGroup --name myAKSCluster
+    ```
+  - Verify cluster connection by returning list of cluster nodes:
+    ```bash
+    kubectl get nodes
+    ```
+  - Run application:
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftLearning/AZ-500-Azure-Security/master/Allfiles/Labs/Mod2_Lab03/azure-vote.yaml
+    ```
+  - Test application:
+    ```bash
+    kubectl get service azure-vote-front --watch # watch to monitor progress
+    ```
+  - Monitor health and logs:
+    - Select Cluster -> Under Monitoring>Insights>Namespace>View Containers.
+  - Delete cluster:
+    ```bash
+    az group delete --name myAKSResourceGroup --yes --no-wait # --no-wait option runs the command in the background
+    ```
 
 ## Session 5
 ### Topics
