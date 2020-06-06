@@ -1048,6 +1048,44 @@ purge protection:
   - Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure.
   - Download SQL Server Management Studio (SSMS): https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
   - SSMS only runs on Windows.
-  
+  - Create Key Vault via Powershell:
+  ```powershell
+  Login-AzAccount
+  New-AzResourceGroup -Name 'KeyVaultPSRG' -Location 'eastus'
+  New-AzKeyVault -VaultName '<keyvault name>' -ResourceGroupName 'KeyVaultPSRG' -Location 'eastus'
+  ```
+  - Add Access Policy:
+    - Select Key, Secret and Certificate Management from Configure from template (optional)
+    - Select Principal and select your account
+  - Add Key to Key Vault via Powershell:
+  ```powershell
+  $key = Add-AZKeyVaultKey -VaultName '<YourVaultName>' -Name 'MyLabKey' -Destination 'Software'
+  ```
+  - View Key via:
+  ```powershell
+  Get-AZKeyVaultKey -VaultName '<YourVaultName>'
+  ```
+  - Add Secret to Key Vault via Powershell:
+  ```powershell
+  $secretvalue = ConvertTo-SecureString 'Pa55w.rd1234' -AsPlainText -Force
+  $secret = Set-AZKeyVaultSecret -VaultName 'YourVaultName' -Name 'SQLPassword' -SecretValue $secretvalue
+  ```
+  - View Secret via:
+  ```powershell
+  Get-AZKeyVaultSecret -VaultName 'YourVaultName'
+  ```
+  - Enable Client application via App Registration (select Expiry date)
+  - Add access policy for Client application:
+  ```
+  $subscriptionName = '[Azure_Subscription_Name]'
+  $applicationId = '[Azure_AD_Application_ID]'
+  $resourceGroupName = '[Resource_Group_with_KeyVault]'
+  $location = '[Azure_Region_of_KeyVault]'
+  $vaultName = '[KeyVault_Name]' 
+  Login-AzAccount
+  Set-AZKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+  ```
+  - To access SQL database you need to add client IP via server and firewall configurations of Database Server.
+  - You can encrypt Columns of your table (randomized or deterministic), which leads to Always Encrypted keys.
 - https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-restrict-network-access-to-resources 
 - https://docs.microsoft.com/en-us/azure/frontdoor/quickstart-create-front-door 
