@@ -823,8 +823,8 @@ Option to enable logs for VMs.
   - Click Advanced Settings > Data: Choose Windows Event Logs and Windows Performance Counters.
 - View data collected:
   - Select Logs.
-  - Type `Perf into query.
-
+  - Type `Perf` into query.
+- With User Flows you can track the pathway visitors takes through the various parts of your website.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_02_Security%20Center.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_07_Secure%20score%20in%20Azure%20Security%20Center.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_05_Manage%20endpoint%20protection%20issues.md 
