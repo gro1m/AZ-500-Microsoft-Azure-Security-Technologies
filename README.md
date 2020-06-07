@@ -834,6 +834,7 @@ Option to enable logs for VMs.
   - Security Center: Install Agents tab to install MMA
   - Security Center > Threat protection > Security alerts: see high, medium, low severity security alerts
   - Security Center > Threat protection > Security alerts (map): This map presents security alerts that contain IP addresses targeting your resources. Markings on the map represent sources of the attack on your resources.
+  - Security center > Resource security hygiene > Resource health by severity > Compute & apps resources: Now you can review the recommendations.
   
 
 When automatic provisioning is enabled, Security Center installs the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
