@@ -826,6 +826,18 @@ Option to enable logs for VMs.
   - Type `Perf` into query.
 - With User Flows you can track the pathway visitors takes through the various parts of your website.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_02_Security%20Center.md 
+  - Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises. Azure Security Center provides you the tools needed to harden your network, secure your services and make sure you're on top of your security posture.
+  - Automate data collection:
+    - Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
+  - 
+  - Security Center > Pricing & Settings > Data Collection: turn Auto-Provisioning to on
+  - Security Center: Install Agents tab to install MMA
+  - Security Center > Threat protection > Security alerts: see high, medium, low severity security alerts
+  - Security Center > Threat protection > Security alerts (map): This map presents security alerts that contain IP addresses targeting your resources. Markings on the map represent sources of the attack on your resources.
+  
+
+When automatic provisioning is enabled, Security Center installs the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
+  
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_07_Secure%20score%20in%20Azure%20Security%20Center.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_05_Manage%20endpoint%20protection%20issues.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_01_Monitor%20%26%20Autoscale.md 
