@@ -950,6 +950,27 @@ Options to secure storage account:
 
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_4/LAB_08_Create%20security%20baselines.md 
+  - Restrict access to Azure AD Administration Portal: non-Admins will not have access
+  - Enable MFA
+  - Block remembering MFA on trusted devices: check Restore multi-factor authentication on all remembered devices.
+  - Limit permissions of guest users or disallow them completely.
+  - Azure Active Directory > Users > Password reset > Authentication methods: Set number of methods to 2.
+  - Azure Active Directory > Users > Password reset > Registration > Number of days before users are asked to re-confirm their authentication information to a value of non-zero (default: 180 days)
+  - Disable members invitations: AAD > Users > User settings > Manage external collaboratio settings > No.
+  - Restrict Security Group creation to admins: AAD > Groups > General > Users can create security groups in Azure portals > No.
+  - Disable self-service group management
+  - Disallow users to register apps.
+  - ASC baselines:
+    - enable system updates: Security Center > Security Policy > View effective policy > System updates should be installed on your machines
+    - enable security configurations: Security Center > Security Policy > View effective policy > Vulnerabilities in security configuration on your virtual machine scale sets should be remediated 
+    - send e-mails about alerts: Security Center > Pricing&Settings > Subscription > Email notifications > Save.
+  - Azure Storage baselines:
+    - require security enhanced transfers: Storage Accounts > Settings > Configuration > Secure Transfer Required: Enabled
+    - enable binary large object encryption: Storage Accounts > Settings > Encryption > Microsoft Managed Keys (Enabled by default and cannot be disabled).
+    - periodically regenerate access keys: Storage Accounts > Activity Log > Time-span drop-down > Custom : choose Start and End time > Apply
+    - require shared access signatures (SAS) to expire within an hour: Storage Accounts > Shared Access Signature > choose Start and expiry date/time > set allowed protocols to HTTPS only
+    - require only private access to blob containers: Storage Accounts > Containers > Public access level: Private.
+ - ...
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_01_Classify%20a%20SQL%20Database.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_02_Auditing%20a%20Database.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_03_Analyze%20audit%20logs%20and%20reports.md 
