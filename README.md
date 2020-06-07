@@ -970,7 +970,46 @@ Options to secure storage account:
     - periodically regenerate access keys: Storage Accounts > Activity Log > Time-span drop-down > Custom : choose Start and End time > Apply
     - require shared access signatures (SAS) to expire within an hour: Storage Accounts > Shared Access Signature > choose Start and expiry date/time > set allowed protocols to HTTPS only
     - require only private access to blob containers: Storage Accounts > Containers > Public access level: Private.
- - ...
+ - Azure SQL Database baselines:
+   - enable auditing:
+     - Auditing for Azure SQL Database and SQL Data Warehouse tracks database events and writes them to an audit log in your Azure storage account, OMS workspace or Event Hubs. Auditing also:Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
+     - Security > Auditing: On and check Audit log destination: Storage, Log Analytics or Event Hubs.
+   - enable threat detection service:
+     - Threat detection for single and pooled databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.Threat detection is part of the advanced data security (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat detection can be accessed and managed via the central SQL ADS portal. 
+     - Security > Advanced Data Security > Settings > Enable Advanced Data Security on the server > Yes
+   - enable all threat detection device:
+     - Advanced data security (ADS) provides a set of advanced SQL security capabilities, including data discovery & classification, vulnerability assessment, and Advanced Threat Protection (ATP).
+     - Security > Advanced Data Security > Settings > Send alerts: Also send email to admins and subscription owners.
+ - Logging and Monitoring baseline:
+ Logging and monitoring are a critical requirement when trying to identify, detect, and mitigate security threats. Having a proper logging policy can ensure you can determine when a security violation has occurred, but also potentially identify the culprit responsible. Azure Activity logs provide data about both external access to a resources and diagnostic logs, which provide information about the operation of that specific resource.
+   - ensure log profile exists:
+      - Monitor > Activity Log > Diagnostic Settings > Export Activity Log.
+   - change activity log retention:
+     - Monitor > Activity Log > Diagnostic Settings > Export Activity Log, set Retention to above 0, 0 keeps data forever.
+   - Create an activity log alert for "Creating, updating, or deleting a Network Security Group"
+     - By default, no monitoring alerts are created when NSGs are created/updated/deleted.
+     - Monitor > Alerts > New alert rule > Resource: Select Subscription, Condition: Add; Create or Update Network Security Group. Configure > Event initiated by any. Create Action Group
+ - Networking baselines:
+   - Restrict RDP and SSH access from the Internet:
+     - After direct RDP and SSH access from the Internet is disabled, you have other options that you can use to access these VMs for remote management: 
+       - Point-to-site VPN
+       - Site-to-site VPN
+       - Azure ExpressRoute
+       - Azure Bastion Host
+     - Virtual Machines > specific VM > Networking > delete RDP inbound port rule.
+   - Restrict SQL Server access from the Internet: To access an instance of the SQL Server through a firewall, you must configure the firewall on the computer that is running SQL Server. Allowing ingress for the IP range 0.0.0.0/0 (Start IP of 0.0.0.0 and End IP of 0.0.0.0) allows open access to any/all traffic potentially making the SQL Database vulnerable to attacks. 
+     - SQL servers > Firewalls and virtual networks > Ensure that the firewall rules exist, and no rule has a Start IP of 0.0.0.0 and End IP of 0.0.0.0 or other combinations which allows access to wider public IP ranges.
+   - Configure the NSG flow rules: When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher. Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. Flow logs are written in JSON format, and show outbound and inbound flows on a per rule basis, the network interface (NIC) the flow applies to, 5-tuple information about the flow (Source/destination IP, source/destination port, and protocol), if the traffic was allowed or denied, and in Version 2, throughput information (Bytes and Packets). Logs can be used to check for anomalies and give insight into suspected breaches.
+     - All services > Networking > Network Watcher > NSG Flow Logs under Logs > On. Select a Storage Account and Save.
+   - enable Network Watcher:
+     - All services > Network Watcher. If a region is disabled, click and press Enable Network Watcher.
+ - Azure VM baseline:
+   - ensure OS disk is encrypted: Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and data disks of Azure virtual machines (VMs). It is also integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets, and ensures that all data on the VM disks are encrypted at rest while in Azure storage. Azure Disk Encryption for Windows and Linux VMs is in General Availability in all Azure public regions and Azure Government regions for Standard VMs and VMs with Azure Premium Storage. If you use Azure Security Center (recommended), you're alerted if you have VMs that aren't encrypted.
+     - All services > Key Vault > Access policy > check Azure Disk Encryption for volume encryption. -> VM is encrypted but not disk. Upon creation click on Encryption > OS data & disks > Select a key vault and key for encryption > Save.
+   - ensure only approved extensions are installed:
+     - Virtual Machines > Settings > Extensions: Ensure that the listed extensions are approved for use.
+     
+Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_01_Classify%20a%20SQL%20Database.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_02_Auditing%20a%20Database.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_03_Analyze%20audit%20logs%20and%20reports.md 
