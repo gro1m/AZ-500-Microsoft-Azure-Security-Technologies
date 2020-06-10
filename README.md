@@ -469,7 +469,23 @@ NAT Gateway:
 
 ### Labs
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_11_VPN%20Gateways%20and%20Tunnelling.md 
+  - Deploy a custom template
+  - Create Virtual Network inside Resource Group with Subnet
+  - Create Gateway Subnet and Virtual Network Gateway:
+    - On VNet > Subnets > Add Gateway Subnet.
+    - Networking > Virtual Network Gateways 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_05_NSGs.md 
+  - You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet.
+  - An application security group enables you to group together servers with similar functions, such as web servers.
+  - Select your NSG > Settings > Subnets >+ Associate: Under Associate subnet, under Virtual network select your VirtualNetwork. Then under Subnet, select your subnet and then select OK.
+  - Connect to other VM in same Virtual Network -> Powershell Command:
+  ```powershell
+  mstsc /v:myVmWeb
+  ```
+  - Install IIS via PowerShell (to open Internet Website by Microsoft):
+  ```powershell
+  Install-WindowsFeature -name Web-Server -IncludeManagementTools
+  
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_06_NVA.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_12_Azure%20Firewall.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_15_DDoS%20Protection.md 
