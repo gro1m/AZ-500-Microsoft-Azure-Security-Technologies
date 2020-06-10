@@ -485,7 +485,6 @@ NAT Gateway:
   - Install IIS via PowerShell (to open Internet Website by Microsoft):
   ```powershell
   Install-WindowsFeature -name Web-Server -IncludeManagementTools
-  
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_06_NVA.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_12_Azure%20Firewall.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_15_DDoS%20Protection.md 
