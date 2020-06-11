@@ -486,6 +486,21 @@ NAT Gateway:
   ```powershell
   Install-WindowsFeature -name Web-Server -IncludeManagementTools
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_06_NVA.md 
+  - Azure routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). NVAs are VMs that help with network functions like routing and firewall optimization. 
+  - Create Route Table. Then under Route Table Settings select Routes and then add Route.
+    - The next hop handles the matching packets for this route. It can be the virtual network, the virtual network gateway, the Internet, a virtual appliance, or none. Virtual network gateways can't be used if the address prefix is IPv6.
+ - The trace route tool to test routing uses the Internet Control Message Protocol (ICMP), which the Windows Firewall denies by default. Enable ICMP through the Windows firewall:
+   ```powershell
+   New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
+   ```
+ - Connect to myVmNva:
+   ```powershell
+   mstsc /v:myvmnva
+   ```
+- Turn on IP forwarding:
+  ```powershell
+  Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
+  ```
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_12_Azure%20Firewall.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_15_DDoS%20Protection.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_13_Secure%20Admin%20Access.md 
@@ -494,7 +509,7 @@ NAT Gateway:
   ```powershell
   New-AzResourceGroup -Name myResourceGroup -Location "East US"
   New-AzVm -ResourceGroupName "myResourceGroup" -Name "myVM" -Location "East  US" -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup"
-  ``
+  ```
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_16_Antimalware.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_17_Update%20Management.md 
 
