@@ -1065,7 +1065,25 @@ Enables and facilitates adherence to compliance standards, although it doesn't g
  - On Advance Security on SQL database select Card *Data Discovery and Classification*:
    ![](images/database_classification.png)
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_02_Auditing%20a%20Database.md 
+ - SQL Server > Security > Auditing > On and select at least one of where to send logs to:
+   - Storage - retention forever (0 days) or between 1 day and 9 years.
+   - Log Analytics (Preview)
+   - Event Hub (Preview)
+ - Go to Database > View audit logs. (Even though auditing not enabled here, as configured on server level you will see it here).
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_3/LAB_03_Analyze%20audit%20logs%20and%20reports.md 
+  - The query language used by log analytics is called the Kusto query language. The full documentation for this language can be found here https://docs.microsoft.com/en-us/azure/kusto/query/, example queries:
+  ```bash
+  Event | where Source  == "MSSQLSERVER" 
+  ```
+  or
+  ```bash
+  Event 
+  | where EventLevelName == "Error" 
+  | where TimeGenerated > ago(1d) 
+  | where Source != "HealthService" 
+  | where Source != "Microsoft-Windows-DistributedCOM" 
+  | summarize count() by Source
+  ```
 
 ## Session 7
 ### Topics
