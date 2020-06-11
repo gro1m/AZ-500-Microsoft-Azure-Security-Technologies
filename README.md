@@ -615,7 +615,10 @@ https://docs.microsoft.com/en-us/azure/automation/automation-update-management
 4. Azure Policy official documentation: https://docs.microsoft.com/en-us/azure/governance/policy/overview 
 
 ### Labs
-- https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_02_Function%20Apps.md 
+- https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_02_Function%20Apps.md
+  - Turn on Advanced Security on SQL database and server
+  - On SQL server add storage account for vulnerability assessment.
+  - On Advance Security on SQL database select Card *Data Discovery and Classification*.
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_08_Azure_Locks.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_1/LAB_07_Azure_Policy.md 
 - https://github.com/MicrosoftLearning/AZ-500-Azure-Security/blob/master/Instructions/Labs/Module_2/LAB_20_Azure%20Blueprints.md 
